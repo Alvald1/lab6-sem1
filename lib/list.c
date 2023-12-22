@@ -3,8 +3,18 @@
 void
 init_list(List* list) {
     list->head = NULL;
-    list->tail = NULL;
-    list->current = NULL;
+}
+
+void
+dealloc_list(List* list) {
+    Node* current = list->head;
+    Node* tmp = NULL;
+    while (current != NULL) {
+        free(current->data);
+        tmp = current;
+        current = current->next;
+        free(tmp);
+    }
 }
 
 void
@@ -12,7 +22,6 @@ add_head(List* list, char* data) {
     Node* node = (Node*)malloc(sizeof(Node));
     node->data = data;
     if (list->head == NULL) {
-        list->tail = node;
         node->next = NULL;
     } else {
         node->next = list->head;
@@ -21,9 +30,9 @@ add_head(List* list, char* data) {
 }
 
 void
-insert_node(List* list, Node* prev, char* data) {
+insert(List* list, Node* prev, char* data) {
     if (prev == list->head) {
-        add_head(list, str);
+        add_head(list, data);
     } else {
         Node* tmp = list->head;
         while (tmp->next != prev) {
@@ -52,7 +61,7 @@ void
 delete_node(List* list, Node* node) {
     if (node == list->head) {
         if (list->head->next == NULL) {
-            list->head = list->tail = NULL;
+            list->head = NULL;
         } else {
             list->head = list->head->next;
         }
@@ -65,6 +74,7 @@ delete_node(List* list, Node* node) {
             tmp->next = node->next;
         }
     }
+    free(node->data);
     free(node);
 }
 

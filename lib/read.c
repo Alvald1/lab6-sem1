@@ -51,7 +51,8 @@ get_word(const char* delim) {
                 free(buffer);
                 return NULL;
             }
-            cur_pos = tmp + len;
+            cur_pos = tmp + len - 1;
+            buffer = tmp;
         }
         *cur_pos++ = c;
     }
