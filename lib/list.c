@@ -81,9 +81,10 @@ delete_node(List* list, Node* node) {
 void
 display_list(List* list) {
     Node* current = list->head;
+    printf("\"");
     while (current != NULL) {
         printf("%s ", current->data);
         current = current->next;
     }
-    printf("\n");
+    printf("\"\n");
 }
