@@ -14,7 +14,6 @@ typedef struct _List {
     Node* head;
 } List;
 
-List* reverse_list(List* list);
 void dealloc_list(List* list);
 void init_list(List* list);
 void add_head(List* list, char* data);
