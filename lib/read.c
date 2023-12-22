@@ -15,10 +15,10 @@ is_delim(const char* delim, char c) {
 
 int
 skip_delim(const char* delim) {
-    char c;
+    int c;
     while (is_delim(delim, (c = getchar())) == __OK)
         ;
-    if (c == '\n') {
+    if (c == '\n' || c == EOF) {
         return 0;
     }
     ungetc(c, stdin);
