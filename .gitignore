@@ -1,3 +1,4 @@
 bin*
 *plist
+*.swp
 test*

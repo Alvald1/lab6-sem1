@@ -14,7 +14,7 @@ all: compile
 compile: 
 	cc -c *.c $(CFLAGS) $(LDFLAGS) $(OPTIM)
 	cc -c $(LIB_DIR)/*.c $(CFLAGS) $(LDFLAGS) $(OPTIM)
-	ccc *.o $(CFLAGS) -o $(EXECUTABLE)_clean $(LDFLAGS) $(OPTIM)
+	cc *.o $(CFLAGS) -o $(EXECUTABLE)_clean $(LDFLAGS) $(OPTIM)
 	rm *.o
 
 debug: 
